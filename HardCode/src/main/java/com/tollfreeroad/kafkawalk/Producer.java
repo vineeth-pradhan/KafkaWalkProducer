@@ -8,7 +8,6 @@ import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.errors.AuthorizationException;
 import org.apache.kafka.common.errors.OutOfOrderSequenceException;
 import org.apache.kafka.common.errors.ProducerFencedException;
-import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +15,8 @@ import java.util.Properties;
 
 import static java.lang.Thread.sleep;
 
-public class ProducerDemo {
-    private static final Logger log = LoggerFactory.getLogger(ProducerDemo.class.getSimpleName());
+public class Producer {
+    private static final Logger log = LoggerFactory.getLogger(Producer.class.getSimpleName());
 
     public static void main(String[] args) {
         Properties props = new Properties();
