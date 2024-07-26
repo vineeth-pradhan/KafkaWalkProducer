@@ -33,8 +33,6 @@ public class Producer {
                 .addPathSegment("recentchange")
                 .build();
         EventSource builder = new EventSource.Builder(url).build();
-        log.info("All went well");
-        log.info(url.toString());
         for(MessageEvent m: builder.messages()) {
             log.info(m.getData());
         }
