@@ -41,23 +41,6 @@ public class Producer {
                 .addPathSegment("recentchange")
                 .build();
         EventSource builder = new EventSource.Builder(url).build();
-        Thread mainThread = Thread.currentThread();
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                log.info("Shutdown buttons(cmd+c) were pressed");
-                producer.close();
-                builder.close();
-                try {
-                    mainThread.join();
-                }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e);
-                }
-            }
-        });
         try {
             builder.start();
             for(MessageEvent m: builder.messages()) {
